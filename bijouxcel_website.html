@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bijouxcel Digi Studio — Creative Branding & Digital Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#1B3A6B;
+  --navy-dark:#0f2347;
+  --navy-light:#2a4f8a;
+  --gold:#C9A84C;
+  --gold-light:#e8c96a;
+  --white:#ffffff;
+  --off-white:#F7F8FC;
+  --text:#1a1a2e;
+  --text-muted:#5a6480;
+  --border:#e4e8f0;
+  --card-bg:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.6}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(27,58,107,0.97);backdrop-filter:blur(10px);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(201,168,76,0.25)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;position:relative}
+.logo-icon svg{width:36px;height:36px}
+.nav-logo-text{color:var(--white)}
+.nav-logo-text strong{display:block;font-size:16px;font-weight:700;letter-spacing:.12em}
+.nav-logo-text span{display:block;font-size:10px;letter-spacing:.25em;color:var(--gold);opacity:.9}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.04em;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy-dark);padding:9px 22px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s;letter-spacing:.04em}
+.nav-cta:hover{background:var(--gold-light)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:white;border-radius:2px}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 55%,#1e4a8a 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-diamond{position:absolute;opacity:.06}
+.hero-diamond.d1{width:400px;height:400px;border:1px solid var(--gold);transform:rotate(45deg);top:-100px;right:-100px}
+.hero-diamond.d2{width:250px;height:250px;border:1px solid white;transform:rotate(45deg);bottom:-60px;left:-60px}
+.hero-inner{position:relative;z-index:1;max-width:780px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);color:var(--gold);font-size:12px;font-weight:600;letter-spacing:.15em;padding:7px 18px;border-radius:30px;margin-bottom:28px;text-transform:uppercase}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(38px,6vw,68px);color:var(--white);line-height:1.12;margin-bottom:20px;font-weight:700}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,0.72);max-width:560px;margin:0 auto 36px;line-height:1.7}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy-dark);padding:14px 32px;border-radius:7px;font-weight:700;text-decoration:none;font-size:14px;letter-spacing:.05em;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-outline{border:1.5px solid rgba(255,255,255,0.4);color:white;padding:14px 32px;border-radius:7px;font-weight:500;text-decoration:none;font-size:14px;transition:all .2s}
+.btn-outline:hover{border-color:white;background:rgba(255,255,255,0.08)}
+.hero-stats{display:flex;justify-content:center;gap:40px;margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.12);flex-wrap:wrap}
+.stat{text-align:center}
+.stat strong{display:block;font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);font-weight:700}
+.stat span{font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:.08em;text-transform:uppercase}
+
+/* SECTION COMMON */
+section{padding:90px 5%}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);color:var(--navy-dark);font-weight:700;line-height:1.2;margin-bottom:16px}
+.section-sub{font-size:16px;color:var(--text-muted);max-width:540px;line-height:1.7}
+.section-head{margin-bottom:52px}
+
+/* WHY US */
+.why{background:var(--off-white)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.why-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:32px 28px;transition:box-shadow .2s,border-color .2s}
+.why-card:hover{box-shadow:0 8px 32px rgba(27,58,107,0.1);border-color:var(--navy)}
+.why-icon{width:52px;height:52px;background:rgba(27,58,107,0.07);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.why-icon svg{width:26px;height:26px;stroke:var(--navy);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.why-card h3{font-size:16px;font-weight:600;color:var(--navy-dark);margin-bottom:8px}
+.why-card p{font-size:14px;color:var(--text-muted);line-height:1.65}
+
+/* SERVICES */
+.services-tabs{display:flex;gap:8px;margin-bottom:36px;flex-wrap:wrap}
+.tab-btn{padding:9px 20px;border-radius:30px;border:1.5px solid var(--border);background:transparent;font-size:13px;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.tab-btn.active{background:var(--navy);color:white;border-color:var(--navy)}
+.tab-btn:hover:not(.active){border-color:var(--navy);color:var(--navy)}
+.tab-content{display:none}
+.tab-content.active{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.pkg-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:16px;transition:box-shadow .2s}
+.pkg-card:hover{box-shadow:0 8px 30px rgba(27,58,107,0.08)}
+.pkg-card.featured{border:2px solid var(--navy);position:relative}
+.featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--navy);color:white;font-size:11px;font-weight:600;padding:4px 16px;border-radius:20px;white-space:nowrap;letter-spacing:.06em}
+.pkg-badge{display:inline-block;background:rgba(27,58,107,0.08);color:var(--navy);font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase}
+.pkg-name{font-size:17px;font-weight:700;color:var(--navy-dark)}
+.pkg-target{font-size:12px;color:var(--text-muted);line-height:1.5;padding:10px 12px;background:var(--off-white);border-radius:7px}
+.pkg-price{display:flex;align-items:baseline;gap:6px}
+.pkg-price strong{font-family:'Playfair Display',serif;font-size:30px;color:var(--navy);font-weight:700}
+.pkg-price span{font-size:13px;color:var(--text-muted)}
+.pkg-divider{border:none;border-top:1px solid var(--border)}
+.pkg-features{list-style:none;display:flex;flex-direction:column;gap:9px;flex:1}
+.pkg-features li{font-size:13px;color:var(--text-muted);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.pkg-features li::before{content:'✓';color:var(--navy);font-weight:700;flex-shrink:0;margin-top:1px}
+.pkg-benefits{background:rgba(27,58,107,0.04);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 14px}
+.pkg-benefits p{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:7px}
+.pkg-benefits ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.pkg-benefits ul li{font-size:12px;color:var(--text-muted);display:flex;align-items:flex-start;gap:6px}
+.pkg-benefits ul li::before{content:'•';color:var(--gold);font-weight:900;flex-shrink:0}
+.pkg-cta{display:block;text-align:center;background:var(--navy);color:white;padding:12px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s;letter-spacing:.04em}
+.pkg-cta:hover{background:var(--navy-light)}
+.pkg-card.featured .pkg-cta{background:var(--gold);color:var(--navy-dark)}
+.pkg-card.featured .pkg-cta:hover{background:var(--gold-light)}
+
+/* PROCESS */
+.process{background:var(--navy-dark)}
+.process .section-label{color:var(--gold)}
+.process .section-title{color:white}
+.process .section-sub{color:rgba(255,255,255,0.6)}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:36px;left:10%;right:10%;height:1px;background:rgba(201,168,76,0.3);z-index:0}
+.step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.step-num{width:72px;height:72px;border-radius:50%;background:rgba(201,168,76,0.12);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold)}
+.step h4{font-size:14px;font-weight:600;color:white;margin-bottom:8px}
+.step p{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6}
+
+/* CONTACT */
+.contact{background:var(--off-white)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-info h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);color:var(--navy-dark);margin-bottom:16px;line-height:1.25}
+.contact-info p{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:32px}
+.contact-items{display:flex;flex-direction:column;gap:16px}
+.contact-item{display:flex;align-items:center;gap:14px}
+.contact-item-icon{width:46px;height:46px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-item-icon svg{width:20px;height:20px;stroke:white;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.contact-item-text strong{display:block;font-size:13px;font-weight:600;color:var(--navy-dark)}
+.contact-item-text span{font-size:14px;color:var(--text-muted)}
+.contact-item-text a{color:var(--navy);text-decoration:none;font-size:14px;font-weight:500}
+.contact-item-text a:hover{color:var(--gold)}
+.contact-form{background:white;border:1px solid var(--border);border-radius:16px;padding:36px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-group label{font-size:12px;font-weight:600;color:var(--navy-dark);letter-spacing:.05em;text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{border:1.5px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);outline:none;transition:border-color .2s;background:white}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--navy)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{width:100%;background:var(--navy);color:white;border:none;padding:14px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s;letter-spacing:.04em}
+.form-submit:hover{background:var(--navy-light)}
+
+/* FOOTER */
+footer{background:var(--navy-dark);padding:48px 5% 28px}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:32px}
+.footer-brand strong{display:block;color:white;font-size:18px;font-weight:700;letter-spacing:.1em;margin-bottom:4px}
+.footer-brand span{font-size:11px;color:var(--gold);letter-spacing:.2em}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.45);margin-top:12px;max-width:240px;line-height:1.6}
+.footer-links h4{color:white;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.footer-links ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-links ul a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:13px;transition:color .2s}
+.footer-links ul a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.3)}
+.footer-tagline{font-size:11px;color:rgba(201,168,76,0.6);letter-spacing:.15em;text-transform:uppercase}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .contact-inner{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .process-steps::before{display:none}
+  .hero-stats{gap:24px}
+  .footer-inner{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="15" y="2" width="10" height="10" rx="1" transform="rotate(45 15 2)" fill="#C9A84C"/>
+      <rect x="15" y="18" width="10" height="10" rx="1" transform="rotate(45 15 18)" fill="rgba(201,168,76,0.5)"/>
+      <rect x="6" y="10" width="10" height="10" rx="1" transform="rotate(45 6 10)" fill="rgba(201,168,76,0.7)"/>
+      <rect x="24" y="10" width="10" height="10" rx="1" transform="rotate(45 24 10)" fill="rgba(201,168,76,0.35)"/>
+    </svg>
+    <div class="nav-logo-text">
+      <strong>BIJOUXCEL</strong>
+      <span>DIGI STUDIO</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Get Started</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-diamond d1"></div>
+  <div class="hero-diamond d2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Creative Branding &amp; Digital Marketing</div>
+    <h1>Transform Your Brand Into A<br><em>High-Demand Business</em></h1>
+    <p>We craft powerful digital identities, generate qualified leads, and build brands that command attention — for real estate, startups, and growing businesses across India.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#packages">&#9658; View Packages</a>
+      <a class="btn-outline" href="tel:+918849827927">&#128222; Call Us Now</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><strong>3</strong><span>Service Verticals</span></div>
+      <div class="stat"><strong>37K+</strong><span>Starting Package</span></div>
+      <div class="stat"><strong>100%</strong><span>Brand Focused</span></div>
+      <div class="stat"><strong>24/7</strong><span>Account Support</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="section-head">
+    <div class="section-label">Why Bijouxcel</div>
+    <h2 class="section-title">Your Brand Deserves More Than Just Posts</h2>
+    <p class="section-sub">We combine creative branding, performance marketing, and premium production to deliver real business results.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>Creative Branding</h3>
+      <p>Distinct, memorable brand identities crafted specifically for your target market — not generic templates.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3>Multi-Industry Expertise</h3>
+      <p>Deep understanding of consumer psychology, digital buying behaviors, and active market trends across industries.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>High-Converting Content</h3>
+      <p>Strategic visual media engineered to maximize click-through rates, community engagement, and digital sales.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      </div>
+      <h3>Premium Production</h3>
+      <p>Cinematic content execution including HD drone footage and multi-angle video assets.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Dedicated Support</h3>
+      <p>Your own account coordinator and monthly performance reviews — we stay accountable to your growth.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <h3>Lead Generation Focus</h3>
+      <p>Performance-driven framework oriented toward traffic delivery and tangible, measurable sales leads.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="section-head">
+    <div class="section-label">Our Packages</div>
+    <h2 class="section-title">Choose Your Growth Plan</h2>
+    <p class="section-sub">Tailored packages for Real Estate, Universal businesses, and Multi-Brand clients — all designed to generate leads and build lasting brands.</p>
+  </div>
+  <div class="services-tabs">
+    <button class="tab-btn active" onclick="switchPkg('realestate',this)">&#127968; Real Estate</button>
+    <button class="tab-btn" onclick="switchPkg('universal',this)">&#127758; Universal</button>
+    <button class="tab-btn" onclick="switchPkg('multibrand',this)">&#10024; Multi-Brand</button>
+  </div>
+
+  <!-- Real Estate -->
+  <div class="tab-content active" id="pkg-realestate">
+    <div class="pkg-card">
+      <div class="pkg-badge">Essential</div>
+      <div class="pkg-name">Essential Branding</div>
+      <div class="pkg-target">For Builders, Real Estate Consultants &amp; New Project Launches</div>
+      <div class="pkg-price"><strong>&#8377;37,000</strong><span>/ month</span></div>
+      <hr class="pkg-divider">
+      <ul class="pkg-features">
+        <li>12 Premium Social Media Creatives</li>
+        <li>4 High-Engagement Reels</li>
+        <li>Monthly Content Strategy &amp; Planning</li>
+        <li>Facebook &amp; Instagram Management</li>
+        <li>Professional Copywriting</li>
+        <li>Project Highlights &amp; Amenities Showcase</li>
+        <li>Brand Consistency Management</li>
+        <li>Monthly Performance Report</li>
+        <li>Dedicated Account Coordinator</li>
+      </ul>
+      <div class="pkg-benefits">
+        <p>Key Benefits</p>
+        <ul>
+          <li>Build strong online presence</li>
+          <li>Increase brand visibility</li>
+          <li>Create buyer trust &amp; credibility</li>
+          <li>Better audience engagement</li>
+        </ul>
+      </div>
+      <a class="pkg-cta" href="tel:+918849827927">&#128222; Get Started</a>
+    </div>
+
+    <div class="pkg-card featured">
+      <div class="featured-badge">MOST POPULAR</div>
+      <div class="pkg-badge">Growth</div>
+      <div class="pkg-name">Growth &amp; Lead Generation</div>
+      <div class="pkg-target">Everything in Essential — plus advanced lead tools</div>
+      <div class="pkg-price"><strong>&#8377;54,000</strong><span>/ month</span></div>
+      <hr class="pkg-divider">
+      <ul class="pkg-features">
+        <li>20 Premium Social Media Creatives</li>
+        <li>8 Professional Reels &amp; Short Videos</li>
+        <li>Drone Footage Editing</li>
+        <li>Monthly Professional Project Shoot</li>
+        <li>Lead Generation Landing Page</li>
+        <li>Google Business Profile Optimization</li>
+        <li>WhatsApp Lead Funnel Setup</li>
+        <li>Competitor Analysis Report</li>
+        <li>Property Walkthrough Content</li>
+        <li>Festival &amp; Campaign-Based Creatives</li>
+        <li>Monthly Marketing Strategy Meeting</li>
+        <li>Lead Quality Monitoring</li>
+      </ul>
+      <div class="pkg-benefits">
+        <p>Key Benefits</p>
+        <ul>
+          <li>Generate qualified buyer leads</li>
+          <li>Increase site visit inquiries</li>
+          <li>Strong project positioning</li>
+          <li>Better lead conversion</li>
+          <li>Enhanced project visibility</li>
+        </ul>
+      </div>
+      <a class="pkg-cta" href="tel:+918849827927">&#128222; Get Started</a>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-badge">Elite</div>
+      <div class="pkg-name">Developer Elite</div>
+      <div class="pkg-target">Premium for Residential &amp; Commercial Developers</div>
+      <div class="pkg-price"><strong>&#8377;1,00,000</strong><span>/ month</span></div>
+      <hr class="pkg-divider">
+      <ul class="pkg-features">
+        <li>30 Premium Social Media Creatives</li>
+        <li>12 Cinematic Reels &amp; Video Campaigns</li>
+        <li>2 Professional Shoot Days / Month</li>
+        <li>Drone Shoot Included</li>
+        <li>Luxury Property Walkthrough Videos</li>
+        <li>Meta Ads Campaign Management</li>
+        <li>Google Ads Strategy &amp; Consultation</li>
+        <li>Weekly Growth Review Meetings</li>
+        <li>Project Launch Campaign Planning</li>
+        <li>Brand Reputation Management</li>
+        <li>Investor &amp; Corporate Presentation Support</li>
+        <li>Advanced Competitor Benchmarking</li>
+        <li>Lead Nurturing Strategy</li>
+        <li>Dedicated Account Manager</li>
+      </ul>
+      <div class="pkg-benefits">
+        <p>Key Benefits</p>
+        <ul>
+          <li>Premium brand positioning</li>
+          <li>Maximum digital visibility</li>
+          <li>Consistent lead flow</li>
+          <li>Strong buyer confidence</li>
+          <li>Long-term brand value creation</li>
+        </ul>
+      </div>
+      <a class="pkg-cta" href="tel:+918849827927">&#128222; Get Started</a>
+    </div>
+  </div>
+
+  <!-- Universal -->
+  <div class="tab-content" id="pkg-universal">
+    <div class="pkg-card">
+      <div class="pkg-badge">Essential</div>
+      <div class="pkg-name">Essential Branding</div>
+      <div class="pkg-target">Small Businesses, Startups &amp; Retail Outlets</div>
+      <div class="pkg-price"><strong>&#8377;37,000</strong><span>/ month</span></div>
+      <hr class="pkg-divider">
+      <ul class="pkg-features">
+        <li>12 Premium Social Media Creatives</li>
+        <li>4 High-Engagement Reels / Short Videos</li>
+        <li>Monthly Content Strategy &amp; Planning</li>
+        <li>Facebook &amp; Instagram Management</li>
+        <li>Professional Copywriting</li>
+        <li>Brand Consistency Management &amp; Engagement Support</li>
+        <li>Monthly Performance Report</li>
+        <li>Dedicated Coordinator</li>
+      </ul>
+      <div class="pkg-benefits">
+        <p>Key Benefits</p>
+        <ul>
+          <li>Strong authoritative online presence</li>
+          <li>Visibility across competitive verticals</li>
+          <li>Consumer trust &amp; brand credibility</li>
+          <li>Better audience engagement</li>
+        </ul>
+      </div>
+      <a class="pkg-cta" href="tel:+918849827927">&#128222; Get Started</a>
+    </div>
+
+    <div class="pkg-card featured">
+      <div class="featured-badge">MOST POPULAR</div>
+      <div class="pkg-badge">Growth</div>
+      <div class="pkg-name">Growth &amp; Lead Generation</div>
+      <div class="pkg-target">Growing Brands, E-Commerce &amp; Corporate Service Providers</div>
+      <div class="pkg-price"><strong>&#8377;54,000</strong><span>/ month</span></div>
+      <hr class="pkg-divider">
+      <ul class="pkg-features">
+        <li>20 Premium Social Media Creatives</li>
+        <li>8 Professional Reels &amp; Short Videos</li>
+        <li>Monthly Professional Product/Service Shoot</li>
+        <li>Lead Generation Landing Page</li>
+        <li>Google Business Profile Optimization</li>
+        <li>WhatsApp Lead Funnel Setup &amp; Automation</li>
+        <li>Competitor Analysis &amp; Strategy</li>
+        <li>Festival &amp; Campaign-Based Content</li>
+      </ul>
+      <div class="pkg-benefits">
+        <p>Key Benefits</p>
+        <ul>
+          <li>Highly qualified customer leads</li>
+          <li>Measurable web traffic &amp; conversions</li>
+          <li>Strong market positioning</li>
+          <li>Scale through lead quality optimization</li>
+        </ul>
+      </div>
+      <a class="pkg-cta" href="tel:+918849827927">&#128222; Get Started</a>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-badge">Enterprise</div>
+      <div class="pkg-name">Developer Elite / Enterprise</div>
+      <div class="pkg-target">Established Corporate Brands, Premium Retailers &amp; Manufacturers</div>
+      <div class="pkg-price"><strong>&#8377;1,00,000</strong><span>/ month</span></div>
+      <hr class="pkg-divider">
+      <ul class="pkg-features">
+        <li>30 Premium Social Media Creatives</li>
+        <li>12 Cinematic Reels &amp; Video Campaigns</li>
+        <li>2 Full Professional Shoot Days / Month</li>
+        <li>Meta Ads Campaign Management</li>
+        <li>Google Ads Strategy &amp; Consultation</li>
+        <li>Brand Launch &amp; Reputation Management</li>
+        <li>Investor &amp; Corporate Presentation Support</li>
+        <li>Weekly Growth Reviews</li>
+        <li>Dedicated Account Manager</li>
+      </ul>
+      <div class="pkg-benefits">
+        <p>Key Benefits</p>
+        <ul>
+          <li>Premium high-end brand positioning</li>
+          <li>Maximum digital reach &amp; visibility</li>
+          <li>Predictable scalable sales funnels</li>
+          <li>Higher ROAS</li>
+          <li>Long-term corporate asset creation</li>
+        </ul>
+      </div>
+      <a class="pkg-cta" href="tel:+918849827927">&#128222; Get Started</a>
+    </div>
+  </div>
+
+  <!-- Multi-Brand -->
+  <div class="tab-content" id="pkg-multibrand">
+    <div class="pkg-card">
+      <div class="pkg-badge">Essential</div>
+      <div class="pkg-name">Essential Branding</div>
+      <div class="pkg-target">Small Businesses, Startups &amp; New Brand Launches</div>
+      <div class="pkg-price"><strong>&#8377;20,000</strong><span>/ month</span></div>
+      <hr class="pkg-divider">
+      <ul class="pkg-features">
+        <li>12 Premium Social Media Creatives</li>
+        <li>4 High-Engagement Reels / Short Videos</li>
+        <li>Monthly Content Strategy &amp; Planning</li>
+        <li>Facebook &amp; Instagram Management</li>
+        <li>Professional Copywriting</li>
+        <li>Brand Consistency Management &amp; Engagement Support</li>
+        <li>Monthly Performance Report</li>
+        <li>Dedicated Coordinator</li>
+      </ul>
+      <div class="pkg-benefits">
+        <p>Key Benefits</p>
+        <ul>
+          <li>Strong authoritative online presence</li>
+          <li>Visibility across competitive verticals</li>
+          <li>Consumer trust &amp; brand credibility</li>
+          <li>Better audience engagement</li>
+        </ul>
+      </div>
+      <a class="pkg-cta" href="tel:+918849827927">&#128222; Get Started</a>
+    </div>
+
+    <div class="pkg-card featured">
+      <div class="featured-badge">MOST POPULAR</div>
+      <div class="pkg-badge">Growth</div>
+      <div class="pkg-name">Growth &amp; Lead Generation</div>
+      <div class="pkg-target">Growing Brands, E-Commerce &amp; Corporate Service Providers</div>
+      <div class="pkg-price"><strong>&#8377;35,000</strong><span>/ month</span></div>
+      <hr class="pkg-divider">
+      <ul class="pkg-features">
+        <li>20 Premium Social Media Creatives</li>
+        <li>8 Professional Reels &amp; Short Videos</li>
+        <li>Monthly Professional Product/Service Shoot</li>
+        <li>Lead Generation Landing Page</li>
+        <li>Google Business Profile Optimization</li>
+        <li>WhatsApp Lead Funnel Setup &amp; Automation</li>
+        <li>Competitor Analysis &amp; Strategy</li>
+        <li>Festival &amp; Campaign-Based Content</li>
+      </ul>
+      <div class="pkg-benefits">
+        <p>Key Benefits</p>
+        <ul>
+          <li>Highly qualified customer leads</li>
+          <li>Measurable web traffic &amp; conversions</li>
+          <li>Strong market positioning</li>
+          <li>Scale through lead quality optimization</li>
+        </ul>
+      </div>
+      <a class="pkg-cta" href="tel:+918849827927">&#128222; Get Started</a>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-badge">Enterprise</div>
+      <div class="pkg-name">Developer Elite / Enterprise</div>
+      <div class="pkg-target">Established Corporate Brands, Premium Retailers &amp; Manufacturers</div>
+      <div class="pkg-price"><strong>&#8377;54,000</strong><span>/ month</span></div>
+      <hr class="pkg-divider">
+      <ul class="pkg-features">
+        <li>30 Premium Social Media Creatives</li>
+        <li>12 Cinematic Reels &amp; Video Campaigns</li>
+        <li>2 Full Professional Shoot Days / Month</li>
+        <li>Meta Ads Campaign Management</li>
+        <li>Google Ads Strategy &amp; Consultation</li>
+        <li>Brand Launch &amp; Reputation Management</li>
+        <li>Investor &amp; Corporate Presentation Support</li>
+        <li>Weekly Growth Reviews</li>
+        <li>Dedicated Account Manager</li>
+      </ul>
+      <div class="pkg-benefits">
+        <p>Key Benefits</p>
+        <ul>
+          <li>Premium high-end brand positioning</li>
+          <li>Maximum digital reach &amp; visibility</li>
+          <li>Predictable scalable sales funnels</li>
+          <li>Higher ROAS</li>
+          <li>Long-term corporate asset creation</li>
+        </ul>
+      </div>
+      <a class="pkg-cta" href="tel:+918849827927">&#128222; Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-head">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title">Simple. Strategic. Results-Driven.</h2>
+    <p class="section-sub">From onboarding to growth — a clear process designed to deliver results fast.</p>
+  </div>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h4>Discovery Call</h4>
+      <p>We understand your brand, goals, and target audience in a focused strategy session.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h4>Strategy &amp; Planning</h4>
+      <p>Monthly content calendar, campaign planning, and creative direction finalized.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h4>Content Creation</h4>
+      <p>Premium creatives, reels, videos, and copy crafted by our in-house team.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h4>Publish &amp; Promote</h4>
+      <p>Content published across platforms with ads management and funnel activation.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <h4>Review &amp; Optimize</h4>
+      <p>Monthly performance reports and strategy meetings to keep scaling your results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Ready to Scale Your Business?</h2>
+      <p>Let's build a powerful digital presence that converts attention into site visits and sales. Reach out today and we'll get back to you within 24 hours.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Phone</strong>
+            <a href="tel:+918849827927">+91 88498 27927</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Email (Real Estate)</strong>
+            <a href="mailto:bijouxcel.india@gmail.com">bijouxcel.india@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Email (Universal)</strong>
+            <a href="mailto:bijouxcel@gmail.com">bijouxcel@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3 style="font-size:18px;font-weight:600;color:var(--navy-dark);margin-bottom:20px">Send Us a Message</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Rahul Sharma">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 98765 43210">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Business / Brand Name</label>
+        <input type="text" placeholder="Your Business Name">
+      </div>
+      <div class="form-group">
+        <label>Package Interest</label>
+        <select>
+          <option value="">Select a package...</option>
+          <optgroup label="Real Estate">
+            <option>Real Estate — Essential (₹37,000/mo)</option>
+            <option>Real Estate — Growth (₹54,000/mo)</option>
+            <option>Real Estate — Developer Elite (₹1,00,000/mo)</option>
+          </optgroup>
+          <optgroup label="Universal">
+            <option>Universal — Essential (₹37,000/mo)</option>
+            <option>Universal — Growth (₹54,000/mo)</option>
+            <option>Universal — Enterprise (₹1,00,000/mo)</option>
+          </optgroup>
+          <optgroup label="Multi-Brand">
+            <option>Multi-Brand — Essential (₹20,000/mo)</option>
+            <option>Multi-Brand — Growth (₹35,000/mo)</option>
+            <option>Multi-Brand — Enterprise (₹54,000/mo)</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your brand and goals..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit()">Send Message &#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>BIJOUXCEL</strong>
+      <span>DIGI STUDIO</span>
+      <p>Transforming brands into high-demand businesses through creative branding, digital marketing, and web solutions.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Packages</h4>
+      <ul>
+        <li><a href="#packages">Real Estate</a></li>
+        <li><a href="#packages">Universal</a></li>
+        <li><a href="#packages">Multi-Brand</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+918849827927">+91 88498 27927</a></li>
+        <li><a href="mailto:bijouxcel.india@gmail.com">bijouxcel.india@gmail.com</a></li>
+        <li><a href="mailto:bijouxcel@gmail.com">bijouxcel@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Bijouxcel Digi Studio. All rights reserved.</p>
+    <div class="footer-tagline">Creative Branding &bull; Digital Marketing &bull; Web Solutions</div>
+  </div>
+</footer>
+
+<script>
+function switchPkg(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('pkg-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function handleSubmit() {
+  alert('Thank you! We will get back to you within 24 hours.\n\nCall us directly: +91 88498 27927');
+}
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if(links) {
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'fixed';
+    links.style.top = '68px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = 'var(--navy-dark)';
+    links.style.padding = '20px 5%';
+    links.style.gap = '16px';
+  }
+}
+</script>
+</body>
+</html>
